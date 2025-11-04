@@ -1,0 +1,38 @@
+# Core Dependencies
+numpy>=1.24.0
+pandas>=2.0.0
+tqdm>=4.65.0
+python-dotenv>=1.0.0
+
+# RAG Core Components
+chromadb==0.4.22
+transformers>=4.36.2
+torch>=2.1.2
+sentence-transformers>=2.3.1
+ollama>=0.1.6
+
+# Indonesian NLP
+# Note: IndoBERT akan di-download otomatis dari Hugging Face
+
+# PDF Processing
+pymupdf>=1.23.8
+pypdf2>=3.0.0
+
+# Logging
+loguru>=0.7.2
+
+# Web UI
+streamlit>=1.29.0
+
+# API (Optional - uncomment if needed)
+# fastapi>=0.104.1
+# uvicorn[standard]>=0.24.0
+# pydantic>=2.5.0
+
+# Fine-tuning Self-RAG (Required for training critic model)
+peft>=0.7.0
+bitsandbytes>=0.41.0
+accelerate>=0.24.0
+datasets>=2.15.0
+wandb>=0.16.0
+einops>=0.7.0
