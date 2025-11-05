@@ -1,0 +1,12 @@
+{
+  "total_examples": 410,
+  "train_size": 328,
+  "validation_size": 41,
+  "test_size": 41,
+  "categories": {
+    "retrieval_decision": 200,
+    "relevance_check": 200,
+    "support_verification": 100,
+    "utility_evaluation": 100
+  }
+}

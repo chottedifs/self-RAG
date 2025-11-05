@@ -73,7 +73,8 @@ class SelfRAGPipeline:
         
         # Core components
         self.embeddings = get_embedding_model()
-        self.vector_db = ChromaManager(embeddings=self.embeddings)
+        from src.vector_db.chroma_manager import get_vector_db
+        self.vector_db = get_vector_db()
         self.llm = get_ollama_llm()
         
         # Self-RAG specific settings

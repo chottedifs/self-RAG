@@ -22,7 +22,7 @@ class Config:
     # Ollama Configuration
     OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
     OLLAMA_API_KEY: Optional[str] = os.getenv("OLLAMA_API_KEY")
-    OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "llama2")
+    OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "mistral:latest")
     
     # ChromaDB Configuration
     CHROMA_DB_PATH: str = os.getenv("CHROMA_DB_PATH", str(CHROMA_DB_DIR))

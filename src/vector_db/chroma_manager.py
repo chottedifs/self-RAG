@@ -118,6 +118,44 @@ class ChromaDBManager:
         
         return results
     
+    def search(
+        self,
+        query_text: str,
+        n_results: int = None,
+        filter_dict: Optional[Dict] = None
+    ) -> Dict:
+        """
+        Search the database with a text query
+        (Alternative method for compatibility with Self-RAG pipeline)
+        
+        Args:
+            query_text: Query text string
+            n_results: Number of results to return
+            filter_dict: Metadata filter dictionary
+            
+        Returns:
+            Query results dictionary with embeddings attribute
+        """
+        from src.embeddings.indobert_embeddings import get_embedding_model
+        
+        n_results = n_results or Config.TOP_K_RETRIEVAL
+        
+        # Get embedding model and generate query embedding
+        embedding_model = get_embedding_model()
+        query_embedding = embedding_model.embed_text(query_text)
+        
+        # Use the existing query method
+        results = self.query(
+            query_embedding=query_embedding,
+            n_results=n_results,
+            filter_dict=filter_dict
+        )
+        
+        # Add embeddings attribute for compatibility
+        results['embeddings'] = self.embeddings if hasattr(self, 'embeddings') else None
+        
+        return results
+    
     def delete_by_source(self, source_file: str):
         """
         Delete all documents from a specific source file
@@ -160,6 +198,9 @@ class ChromaDBManager:
             "unique_sources": len(source_files),
             "collection_name": self.collection_name
         }
+
+# Alias for compatibility
+ChromaManager = ChromaDBManager
 
 # Singleton instance
 _db_instance = None

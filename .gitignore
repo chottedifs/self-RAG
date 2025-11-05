@@ -58,8 +58,8 @@ models/
 *.safetensors
 
 # Fine-tuning Data
-fine_tuning_data/
-*.jsonl
+# fine_tuning_data/
+# *.jsonl
 
 # Vector Database
 chroma_db/
